@@ -11,7 +11,6 @@
 		0A55B56327BEDC4F0076880B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B56227BEDC4F0076880B /* ViewController.swift */; };
 		0A55B56827BEDC530076880B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A55B56727BEDC530076880B /* Assets.xcassets */; };
 		0A55B56B27BEDC530076880B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A55B56927BEDC530076880B /* LaunchScreen.storyboard */; };
-		0A55B57427BEDDDD0076880B /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B57327BEDDDD0076880B /* AppFlowCoordinator.swift */; };
 		E787FA1586DB39A728D61E5F /* Pods_TestingRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886BDBCD88B053BC0C8F5477 /* Pods_TestingRepository.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,7 +21,6 @@
 		0A55B56727BEDC530076880B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A55B56A27BEDC530076880B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A55B56C27BEDC530076880B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A55B57327BEDDDD0076880B /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		1D867ABB1D7AA4501A0A9906 /* Pods-TestingRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingRepository.release.xcconfig"; path = "Target Support Files/Pods-TestingRepository/Pods-TestingRepository.release.xcconfig"; sourceTree = "<group>"; };
 		886BDBCD88B053BC0C8F5477 /* Pods_TestingRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestingRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00D9F64F3D57B46D4BEEF95 /* Pods-TestingRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingRepository.debug.xcconfig"; path = "Target Support Files/Pods-TestingRepository/Pods-TestingRepository.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 		0A55B55D27BEDC4F0076880B /* TestingRepository */ = {
 			isa = PBXGroup;
 			children = (
-				0A55B57227BEDDCD0076880B /* Coordinator */,
 				0A55B55E27BEDC4F0076880B /* AppDelegate.swift */,
 				0A55B56227BEDC4F0076880B /* ViewController.swift */,
 				0A55B56727BEDC530076880B /* Assets.xcassets */,
@@ -79,21 +76,12 @@
 			path = TestingRepository;
 			sourceTree = "<group>";
 		};
-		0A55B57227BEDDCD0076880B /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				0A55B57327BEDDDD0076880B /* AppFlowCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
 		8B46D5D6A6C716D25BE5A9A7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				C00D9F64F3D57B46D4BEEF95 /* Pods-TestingRepository.debug.xcconfig */,
 				1D867ABB1D7AA4501A0A9906 /* Pods-TestingRepository.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -212,7 +200,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A55B56327BEDC4F0076880B /* ViewController.swift in Sources */,
-				0A55B57427BEDDDD0076880B /* AppFlowCoordinator.swift in Sources */,
 				0A55B55F27BEDC4F0076880B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
