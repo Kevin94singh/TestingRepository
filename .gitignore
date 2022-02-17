@@ -55,6 +55,7 @@ playground.xcworkspace
 
 # CocoaPods
 Pods/
+#Podfile.lock
 
 # Carthage
 #Carthage/Build
@@ -89,3 +90,4 @@ node_modules/
 
 ### R.swift ###
 *R.generated.swift
+
