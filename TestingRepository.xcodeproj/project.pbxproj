@@ -28,6 +28,11 @@
 		0A55B5BF27BEEE710076880B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5BE27BEEE710076880B /* NetworkManager.swift */; };
 		0A55B5C127BEEE7A0076880B /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5C027BEEE7A0076880B /* AuthHandler.swift */; };
 		0A55B5C527BEEEDA0076880B /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5C427BEEEDA0076880B /* CustomError.swift */; };
+		0A55B5C827BEF06A0076880B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5C727BEF06A0076880B /* Configuration.swift */; };
+		0A55B5CA27BEF09C0076880B /* DashboardApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5C927BEF09C0076880B /* DashboardApiRouter.swift */; };
+		0A55B5CC27BEF3A20076880B /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5CB27BEF3A20076880B /* Story.swift */; };
+		0A55B5CE27BEF55E0076880B /* DashboardApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5CD27BEF55E0076880B /* DashboardApiService.swift */; };
+		0A55B5D127BEF5E70076880B /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5D027BEF5E70076880B /* AppDependency.swift */; };
 		E787FA1586DB39A728D61E5F /* Pods_TestingRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886BDBCD88B053BC0C8F5477 /* Pods_TestingRepository.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +60,11 @@
 		0A55B5BE27BEEE710076880B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0A55B5C027BEEE7A0076880B /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		0A55B5C427BEEEDA0076880B /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		0A55B5C727BEF06A0076880B /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		0A55B5C927BEF09C0076880B /* DashboardApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardApiRouter.swift; sourceTree = "<group>"; };
+		0A55B5CB27BEF3A20076880B /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		0A55B5CD27BEF55E0076880B /* DashboardApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardApiService.swift; sourceTree = "<group>"; };
+		0A55B5D027BEF5E70076880B /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		1D867ABB1D7AA4501A0A9906 /* Pods-TestingRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingRepository.release.xcconfig"; path = "Target Support Files/Pods-TestingRepository/Pods-TestingRepository.release.xcconfig"; sourceTree = "<group>"; };
 		886BDBCD88B053BC0C8F5477 /* Pods_TestingRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestingRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00D9F64F3D57B46D4BEEF95 /* Pods-TestingRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingRepository.debug.xcconfig"; path = "Target Support Files/Pods-TestingRepository/Pods-TestingRepository.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +111,8 @@
 		0A55B55D27BEDC4F0076880B /* TestingRepository */ = {
 			isa = PBXGroup;
 			children = (
+				0A55B5CF27BEF5D60076880B /* DI */,
+				0A55B5C627BEF05E0076880B /* Static */,
 				0A55B5C227BEEEC80076880B /* Model */,
 				0A55B5BB27BEEE490076880B /* Network */,
 				0A55B59627BEE5770076880B /* Logger */,
@@ -204,6 +216,7 @@
 		0A55B5BC27BEEE5C0076880B /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				0A55B5CD27BEF55E0076880B /* DashboardApiService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -211,6 +224,7 @@
 		0A55B5BD27BEEE630076880B /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				0A55B5C927BEF09C0076880B /* DashboardApiRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -219,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				0A55B5C327BEEED10076880B /* Error */,
+				0A55B5CB27BEF3A20076880B /* Story.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,6 +244,22 @@
 				0A55B5C427BEEEDA0076880B /* CustomError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		0A55B5C627BEF05E0076880B /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				0A55B5C727BEF06A0076880B /* Configuration.swift */,
+			);
+			path = Static;
+			sourceTree = "<group>";
+		};
+		0A55B5CF27BEF5D60076880B /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				0A55B5D027BEF5E70076880B /* AppDependency.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 		8B46D5D6A6C716D25BE5A9A7 /* Pods */ = {
@@ -357,9 +388,13 @@
 				0A55B5B827BEEB400076880B /* ViewModelProtocol.swift in Sources */,
 				0A55B5A227BEEA1B0076880B /* BaseViewModel.swift in Sources */,
 				0A55B5A027BEE9FD0076880B /* BaseCoordinator.swift in Sources */,
+				0A55B5CA27BEF09C0076880B /* DashboardApiRouter.swift in Sources */,
 				0A55B59E27BEE9D40076880B /* BaseViewController.swift in Sources */,
+				0A55B5CE27BEF55E0076880B /* DashboardApiService.swift in Sources */,
+				0A55B5D127BEF5E70076880B /* AppDependency.swift in Sources */,
 				0A55B5A627BEEA560076880B /* DashboardFlowCoordinator.swift in Sources */,
 				0A55B5AC27BEEA9B0076880B /* DashboardViewModel.swift in Sources */,
+				0A55B5C827BEF06A0076880B /* Configuration.swift in Sources */,
 				0A55B5B227BEEAFC0076880B /* UILabel.swift in Sources */,
 				0A55B5C527BEEEDA0076880B /* CustomError.swift in Sources */,
 				0A55B5BA27BEEB530076880B /* Logger.swift in Sources */,
@@ -373,6 +408,7 @@
 				0A55B5AE27BEEAD10076880B /* ViewControllerStyleable.swift in Sources */,
 				0A55B5A827BEEA6D0076880B /* AppFlowDelegate.swift in Sources */,
 				0A55B5AA27BEEA890076880B /* DashboardViewController.swift in Sources */,
+				0A55B5CC27BEF3A20076880B /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

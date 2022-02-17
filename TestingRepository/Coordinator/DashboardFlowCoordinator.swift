@@ -13,7 +13,7 @@ final class DashboardFlowCoordinator: BaseCoordinator<NoDeepLink> {
         let style = AppStyle.main
         style.apply(textStyle: .tabBar, to: tabBarController.tabBar)
         
-        let dashboardViewController = DashboardViewController(viewModel: DashboardViewModel())
+        let dashboardViewController = DashboardViewController(viewModel: DashboardViewModel(dependencies: dependencies))
         let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
         dashboardNavigationController.tabBarItem = UITabBarItem(title: "Dashboard", image: nil, selectedImage: nil)
         
