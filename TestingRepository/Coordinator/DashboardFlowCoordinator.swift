@@ -1,0 +1,28 @@
+import UIKit
+
+final class DashboardFlowCoordinator: BaseCoordinator<NoDeepLink> {
+    weak var flowDelegate: AppFlowDelegate?
+    
+    private lazy var tabBarController: UITabBarController = {
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.barTintColor = .green
+        return tabBarController
+    }()
+    
+    override func start(in window: UIWindow) {
+        let style = AppStyle.main
+        style.apply(textStyle: .tabBar, to: tabBarController.tabBar)
+        
+        let dashboardViewController = DashboardViewController(viewModel: DashboardViewModel())
+        let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
+        dashboardNavigationController.tabBarItem = UITabBarItem(title: "Dashboard", image: nil, selectedImage: nil)
+        
+        tabBarController.viewControllers = [dashboardNavigationController]
+        let navigationController = UINavigationController(rootViewController: tabBarController)
+        navigationController.setNavigationBarHidden(true, animated: true)
+        
+        window.rootViewController = navigationController
+        rootViewController = navigationController
+        self.navigationController = navigationController
+    }
+}
