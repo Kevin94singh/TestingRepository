@@ -1,6 +1,10 @@
 import UIKit
 
 extension UIColor {
+    static let testingRepositoryError = UIColor("#E53E3E")
+}
+
+extension UIColor {
     convenience init(_ hexString: String) {
         var hexString = hexString
         

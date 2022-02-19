@@ -120,7 +120,6 @@ extension DashboardViewController: UICollectionViewDelegateFlowLayout {
 
 extension DashboardViewController {
     func bindAction() {
-        
         viewModel.dashboardData
             .asDriver()
             .drive(onNext: { [weak self] (data) in
@@ -130,14 +129,13 @@ extension DashboardViewController {
                     self?.avatarImageView.setImage(urlString: user.avatarImageUrl, placeholder: nil)
                     self?.usernameLabel.text(user.displayName ?? "")
                 }
-                // TODO Work with data
             }).disposed(by: disposeBag)
         
         viewModel.error
             .asDriver()
             .drive(onNext: { [weak self] (error) in
-                guard let error = error else { return }
-                // TODO Error
+                guard let error = error as? CustomError else { return }
+                self?.showToast(message: error.customDescription.1)
             }).disposed(by: disposeBag)
     }
 }
