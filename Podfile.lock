@@ -3,6 +3,9 @@ PODS:
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
   - Alamofire (4.9.1)
+  - Kingfisher (5.15.8):
+    - Kingfisher/Core (= 5.15.8)
+  - Kingfisher/Core (5.15.8)
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
@@ -25,6 +28,7 @@ PODS:
 DEPENDENCIES:
   - Action (~> 5.0.0)
   - Alamofire (~> 4.9.0)
+  - Kingfisher (~> 5.14)
   - R.swift (~> 6.1.0)
   - RxCocoa (~> 6.2.0)
   - RxSwift (~> 6.2.0)
@@ -35,6 +39,7 @@ SPEC REPOS:
   trunk:
     - Action
     - Alamofire
+    - Kingfisher
     - R.swift
     - R.swift.Library
     - RxCocoa
@@ -46,6 +51,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Action: 47f1825511907b4fcd79dd7a7db9526c20f78018
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
@@ -54,6 +60,6 @@ SPEC CHECKSUMS:
   RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
 
-PODFILE CHECKSUM: 50a657322029d0e0a0101734d8faf196350e2c5b
+PODFILE CHECKSUM: dc40a7fa11b6a716cd9daa5cea50b872e0902995
 
 COCOAPODS: 1.10.0

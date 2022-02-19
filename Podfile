@@ -14,6 +14,9 @@ def common_pods
     pod 'Action', '~> 5.0.0'
     pod 'RxSwiftExt', '~> 6.0.1'
 
+   # Caching image
+    pod 'Kingfisher', '~> 5.14'
+
     # Resources
     pod 'R.swift', '~> 6.1.0'
 
