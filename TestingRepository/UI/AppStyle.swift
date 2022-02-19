@@ -78,7 +78,7 @@ struct AppStyle {
             tabBarItemAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             tabBarItemAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             appearance.stackedLayoutAppearance = tabBarItemAppearance
-            tabBar.backgroundColor = .red
+            tabBar.backgroundColor = .black
             
             tabBar.standardAppearance = appearance
             tabBar.scrollEdgeAppearance = tabBar.standardAppearance
@@ -89,7 +89,7 @@ struct AppStyle {
 extension AppStyle {
     static var main: AppStyle {
         return AppStyle(
-            backgroundColor: .white,
+            backgroundColor: .black,
             preferredStatusBarStyle: .default,
             attributesForStyle: { $0.mainAppAttributes }
         )
@@ -100,7 +100,7 @@ private extension AppStyle.TextStyle {
     var mainAppAttributes: AppStyle.TextAttributes {
         switch self {
         case .navigationBar:
-            return AppStyle.TextAttributes(font: UIFont.systemFont(ofSize: 18, weight: .bold), color: .white, backgroundColor: .red)
+            return AppStyle.TextAttributes(font: UIFont.systemFont(ofSize: 18, weight: .bold), color: .white, backgroundColor: .black)
         case .tabBar:
             return AppStyle.TextAttributes(font: UIFont.systemFont(ofSize: 11), color: .white, backgroundColor: .clear)
         }
