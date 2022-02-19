@@ -131,6 +131,12 @@ extension DashboardViewController {
                 }
             }).disposed(by: disposeBag)
         
+        viewModel
+            .isExecuting
+            .asDriver()
+            .drive(rx.customLoading)
+            .disposed(by: disposeBag)
+        
         viewModel.error
             .asDriver()
             .drive(onNext: { [weak self] (error) in

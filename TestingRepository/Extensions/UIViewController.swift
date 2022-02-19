@@ -1,3 +1,5 @@
+import RxCocoa
+import RxSwift
 import UIKit
 
 extension UIViewController {
@@ -41,6 +43,42 @@ extension UIViewController {
             }, completion: {_ in
                 toastContainer.removeFromSuperview()
             })
+        })
+    }
+    
+    func showLoading(animated: Bool = false) {
+        let loadingVC = LoadingViewController()
+        loadingVC.modalPresentationStyle = .overFullScreen
+        loadingVC.modalTransitionStyle = .crossDissolve
+        self.present(loadingVC, animated: animated, completion: nil)
+    }
+    
+    func dismissLoading(animated: Bool = false, completion:(() -> Swift.Void)? = nil) {
+        if self is LoadingViewController {
+            self.dismiss(animated: animated, completion: {
+                completion?()
+            })
+        } else if self.presentedViewController is LoadingViewController {
+            self.presentedViewController?.dismiss(animated: animated, completion: {
+                completion?()
+            })
+        } else if self.parent?.presentedViewController is LoadingViewController {
+            self.parent?.presentedViewController?.dismiss(animated: animated, completion: {
+                completion?()
+            })
+        }
+    }
+}
+
+extension Reactive where Base: UIViewController {
+    
+    var customLoading: Binder<Bool> {
+        return Binder(base, binding: { viewController, isLoading  in
+            if isLoading {
+                viewController.showLoading()
+            } else {
+                viewController.dismissLoading()
+            }
         })
     }
 }
