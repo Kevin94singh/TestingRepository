@@ -71,7 +71,7 @@ final class DashboardViewController: BaseViewController<DashboardViewModel> {
     
     override func setStyle() {
         super.setStyle()
-        setDefaultAttributesFor(style: .main, for: self, title: "Stories")
+        setDefaultAttributesFor(style: .main, for: self, title: Localizable.storiesTitle())
     }
     
     @objc
