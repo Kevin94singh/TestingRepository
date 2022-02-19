@@ -14,6 +14,7 @@ final class DashboardFlowCoordinator: BaseCoordinator<NoDeepLink> {
         style.apply(textStyle: .tabBar, to: tabBarController.tabBar)
         
         let dashboardViewController = DashboardViewController(viewModel: DashboardViewModel(dependencies: dependencies))
+        dashboardViewController.delegate = self
         let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
         dashboardNavigationController.tabBarItem = UITabBarItem(title: "Dashboard", image: UIImage(named: "explorer-unselected"), selectedImage: UIImage(named: "explorer-selected"))
         
@@ -28,5 +29,20 @@ final class DashboardFlowCoordinator: BaseCoordinator<NoDeepLink> {
         window.rootViewController = navigationController
         rootViewController = navigationController
         self.navigationController = navigationController
+    }
+}
+
+extension DashboardFlowCoordinator: DashboardViewControllerDelegate {
+    func dashboardViewControllerDelegateShowUser(detail: User) {
+        let viewController = UserDetailViewController(viewModel: UserDetailViewModel(user: detail))
+        viewController.delegate = self
+        viewController.modalTransitionStyle = .crossDissolve
+        navigationController?.present(viewController, animated: true)
+    }
+}
+
+extension DashboardFlowCoordinator: UserDetailViewControllerDelegate {
+    func userDetailViewControllerDelegateDismiss(viewController: UserDetailViewController) {
+        viewController.dismiss(animated: true)
     }
 }

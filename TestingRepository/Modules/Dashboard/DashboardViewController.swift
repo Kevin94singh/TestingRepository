@@ -25,6 +25,10 @@ final class DashboardViewController: BaseViewController<DashboardViewModel> {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 15
         imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
+        imageView.addGestureRecognizer(tapRecognizer)
         return imageView
     }()
     
@@ -32,6 +36,8 @@ final class DashboardViewController: BaseViewController<DashboardViewModel> {
         let label = UILabel.white(font: .systemFont(ofSize: 17, weight: .regular))
         return label
     }()
+    
+    weak var delegate: DashboardViewControllerDelegate?
     
     override func loadView() {
         super.loadView()
@@ -67,11 +73,16 @@ final class DashboardViewController: BaseViewController<DashboardViewModel> {
         super.setStyle()
         setDefaultAttributesFor(style: .main, for: self, title: "Stories")
     }
+    
+    @objc
+    private func avatarTapped() {
+        guard let user = viewModel.dashboardData.value?.data.first?.user else { return } //same user always
+        delegate?.dashboardViewControllerDelegateShowUser(detail: user)
+    }
 }
 
 extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(viewModel.dashboardData.value?.data.count)
         return viewModel.dashboardData.value?.data.count ?? 0
     }
     
