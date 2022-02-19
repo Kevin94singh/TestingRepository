@@ -4,13 +4,13 @@ import UIKit
 final class UserDetailViewController: BaseViewController<UserDetailViewModel> {
     private lazy var dismissButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "cross"), for: .normal)
+        button.setImage(Images.cross(), for: .normal)
         return button
     }()
     
     private lazy var userAvatarImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(urlString: viewModel.user.avatarImageUrl, placeholder: UIImage(named: "user-placeholder"))
+        imageView.setImage(urlString: viewModel.user.avatarImageUrl, placeholder: Images.userPlaceholder())
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 40
@@ -54,15 +54,15 @@ final class UserDetailViewController: BaseViewController<UserDetailViewModel> {
     override func loadView() {
         super.loadView()
         let storiesLabel = UILabel.white(font: .systemFont(ofSize: 14, weight: .regular))
-        storiesLabel.text("Stories")
+        storiesLabel.text(Localizable.userDetailStories())
         storiesLabel.textAlignment = .center
         
         let followersLabel = UILabel.white(font: .systemFont(ofSize: 14, weight: .regular))
-        followersLabel.text("Followers")
+        followersLabel.text(Localizable.userDetailFollowers())
         followersLabel.textAlignment = .center
         
         let followingLabel = UILabel.white(font: .systemFont(ofSize: 14, weight: .regular))
-        followingLabel.text("Following")
+        followingLabel.text(Localizable.userDetailFollowing())
         followingLabel.textAlignment = .center
         
         let storiesStackView = UIStackView(arrangedSubviews: [storiesCountLabel, storiesLabel])

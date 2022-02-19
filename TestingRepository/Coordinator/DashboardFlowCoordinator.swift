@@ -16,11 +16,11 @@ final class DashboardFlowCoordinator: BaseCoordinator<NoDeepLink> {
         let dashboardViewController = DashboardViewController(viewModel: DashboardViewModel(dependencies: dependencies))
         dashboardViewController.delegate = self
         let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
-        dashboardNavigationController.tabBarItem = UITabBarItem(title: "Dashboard", image: UIImage(named: "explorer-unselected"), selectedImage: UIImage(named: "explorer-selected"))
+        dashboardNavigationController.tabBarItem = UITabBarItem(title: "Dashboard", image:Images.explorerUnselected(), selectedImage: Images.explorerSelected())
         
         let aboutViewController = AboutYouViewController()
         let aboutNavigationController = UINavigationController(rootViewController: aboutViewController)
-        aboutNavigationController.tabBarItem = UITabBarItem(title: "About", image: UIImage(named: "about-unselected"), selectedImage: UIImage(named: "about-selected"))
+        aboutNavigationController.tabBarItem = UITabBarItem(title: "About", image: Images.aboutUnselected(), selectedImage: Images.aboutSelected())
         
         tabBarController.viewControllers = [dashboardNavigationController, aboutNavigationController]
         let navigationController = UINavigationController(rootViewController: tabBarController)

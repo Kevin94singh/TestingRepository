@@ -54,6 +54,6 @@ final class DashboardCollectionViewCell: UICollectionViewCell {
         if let color = collection.coverImageBg {
             overlayView.backgroundColor = UIColor(color)
         }
-        backgroundImageView.setImage(urlString: collection.coverImageUrl, placeholder: UIImage(named: "placeholder-background"))
+        backgroundImageView.setImage(urlString: collection.coverImageUrl, placeholder: Images.placeholderBackground())
     }
 }

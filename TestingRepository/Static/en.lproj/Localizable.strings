@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  TestingRepository
+
+  Created by Kevin Singh on 19.02.2022.
+  
+*/
+
+/* Stories */
+
+"stories.title" = "Stories";
+
+/* User detail */
+
+"user.detail.stories" = "Stories";
+"user.detail.followers" = "Followers";
+"user.detail.following" = "Following";
+
+/* About */
+
+"about.title" = "About";
