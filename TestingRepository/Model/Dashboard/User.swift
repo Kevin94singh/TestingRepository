@@ -1,15 +1,5 @@
 import Foundation
 
-struct Story: Codable {
-    var data: [StoryData]
-}
-
-struct StoryData: Codable {
-    var id: String?
-    var revision: Int?
-    var user: User?
-}
-
 struct User: Codable {
     var id: String?
     var revision: Int?
@@ -31,19 +21,5 @@ struct User: Codable {
         case following = "following"
         case stories = "stories"
         case collections = "collections"
-    }
-}
-
-struct Collection: Codable {
-    var id: String?
-    var name: String?
-    var coverImageUrl: String?
-    var coverImageBg: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case coverImageUrl = "cover_image_url"
-        case coverImageBg = "cover_image_bg"
     }
 }

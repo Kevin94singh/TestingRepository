@@ -37,6 +37,13 @@
 		0A55B5D527BFE9280076880B /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5D427BFE9280076880B /* UIImageView.swift */; };
 		0A55B5D727BFEC3D0076880B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5D627BFEC3D0076880B /* UIColor.swift */; };
 		0A55B5DA27BFFE450076880B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5D927BFFE450076880B /* AboutViewController.swift */; };
+		0A55B5DD27C1151F0076880B /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5DC27C1151F0076880B /* UserDetailViewModel.swift */; };
+		0A55B5DF27C1152A0076880B /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5DE27C1152A0076880B /* UserDetailViewController.swift */; };
+		0A55B5E127C120450076880B /* DashboardViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5E027C120450076880B /* DashboardViewControllerDelegate.swift */; };
+		0A55B5E327C121440076880B /* UserDetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5E227C121440076880B /* UserDetailViewControllerDelegate.swift */; };
+		0A55B5E527C1586F0076880B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5E427C1586F0076880B /* User.swift */; };
+		0A55B5E727C158950076880B /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5E627C158950076880B /* Collection.swift */; };
+		0A55B5E927C158B10076880B /* StoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5E827C158B10076880B /* StoryData.swift */; };
 		E787FA1586DB39A728D61E5F /* Pods_TestingRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886BDBCD88B053BC0C8F5477 /* Pods_TestingRepository.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +80,13 @@
 		0A55B5D427BFE9280076880B /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		0A55B5D627BFEC3D0076880B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0A55B5D927BFFE450076880B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		0A55B5DC27C1151F0076880B /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
+		0A55B5DE27C1152A0076880B /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		0A55B5E027C120450076880B /* DashboardViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewControllerDelegate.swift; sourceTree = "<group>"; };
+		0A55B5E227C121440076880B /* UserDetailViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewControllerDelegate.swift; sourceTree = "<group>"; };
+		0A55B5E427C1586F0076880B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0A55B5E627C158950076880B /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		0A55B5E827C158B10076880B /* StoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryData.swift; sourceTree = "<group>"; };
 		1D867ABB1D7AA4501A0A9906 /* Pods-TestingRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingRepository.release.xcconfig"; path = "Target Support Files/Pods-TestingRepository/Pods-TestingRepository.release.xcconfig"; sourceTree = "<group>"; };
 		886BDBCD88B053BC0C8F5477 /* Pods_TestingRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestingRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00D9F64F3D57B46D4BEEF95 /* Pods-TestingRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingRepository.debug.xcconfig"; path = "Target Support Files/Pods-TestingRepository/Pods-TestingRepository.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +175,7 @@
 		0A55B57D27BEE2A50076880B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0A55B5DB27C1150F0076880B /* UserDetail */,
 				0A55B5D827BFFE2D0076880B /* About */,
 				0A55B57E27BEE2AF0076880B /* Dashboard */,
 			);
@@ -173,6 +188,7 @@
 				0A55B5A927BEEA890076880B /* DashboardViewController.swift */,
 				0A55B5AB27BEEA9B0076880B /* DashboardViewModel.swift */,
 				0A55B5D227BFE2590076880B /* DashboardCollectionViewCell.swift */,
+				0A55B5E027C120450076880B /* DashboardViewControllerDelegate.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -244,8 +260,8 @@
 		0A55B5C227BEEEC80076880B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A55B5EA27C158CB0076880B /* Dashboard */,
 				0A55B5C327BEEED10076880B /* Error */,
-				0A55B5CB27BEF3A20076880B /* Story.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +296,27 @@
 				0A55B5D927BFFE450076880B /* AboutViewController.swift */,
 			);
 			path = About;
+			sourceTree = "<group>";
+		};
+		0A55B5DB27C1150F0076880B /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0A55B5DC27C1151F0076880B /* UserDetailViewModel.swift */,
+				0A55B5DE27C1152A0076880B /* UserDetailViewController.swift */,
+				0A55B5E227C121440076880B /* UserDetailViewControllerDelegate.swift */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		0A55B5EA27C158CB0076880B /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				0A55B5E827C158B10076880B /* StoryData.swift */,
+				0A55B5E627C158950076880B /* Collection.swift */,
+				0A55B5E427C1586F0076880B /* User.swift */,
+				0A55B5CB27BEF3A20076880B /* Story.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		8B46D5D6A6C716D25BE5A9A7 /* Pods */ = {
@@ -418,11 +455,16 @@
 				0A55B5DA27BFFE450076880B /* AboutViewController.swift in Sources */,
 				0A55B5C827BEF06A0076880B /* Configuration.swift in Sources */,
 				0A55B5B227BEEAFC0076880B /* UILabel.swift in Sources */,
+				0A55B5E327C121440076880B /* UserDetailViewControllerDelegate.swift in Sources */,
 				0A55B5C527BEEEDA0076880B /* CustomError.swift in Sources */,
 				0A55B5BA27BEEB530076880B /* Logger.swift in Sources */,
 				0A55B55F27BEDC4F0076880B /* AppDelegate.swift in Sources */,
+				0A55B5DD27C1151F0076880B /* UserDetailViewModel.swift in Sources */,
+				0A55B5E927C158B10076880B /* StoryData.swift in Sources */,
 				0A55B5B427BEEB110076880B /* UINavigationController.swift in Sources */,
+				0A55B5E727C158950076880B /* Collection.swift in Sources */,
 				0A55B5D527BFE9280076880B /* UIImageView.swift in Sources */,
+				0A55B5E127C120450076880B /* DashboardViewControllerDelegate.swift in Sources */,
 				0A55B5BF27BEEE710076880B /* NetworkManager.swift in Sources */,
 				0A55B5A427BEEA350076880B /* AppFlowCoordinator.swift in Sources */,
 				0A55B5B027BEEAE50076880B /* AppStyle.swift in Sources */,
@@ -430,9 +472,11 @@
 				0A55B5C127BEEE7A0076880B /* AuthHandler.swift in Sources */,
 				0A55B5D727BFEC3D0076880B /* UIColor.swift in Sources */,
 				0A55B5AE27BEEAD10076880B /* ViewControllerStyleable.swift in Sources */,
+				0A55B5DF27C1152A0076880B /* UserDetailViewController.swift in Sources */,
 				0A55B5A827BEEA6D0076880B /* AppFlowDelegate.swift in Sources */,
 				0A55B5AA27BEEA890076880B /* DashboardViewController.swift in Sources */,
 				0A55B5CC27BEF3A20076880B /* Story.swift in Sources */,
+				0A55B5E527C1586F0076880B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
