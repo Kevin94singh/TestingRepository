@@ -121,7 +121,7 @@ final class UserDetailViewController: BaseViewController<UserDetailViewModel> {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animate(withDuration: 0.7) {
+        UIView.animate(withDuration: 0.4) {
             [self.dismissButton, self.userAvatarImageView, self.userNameLabel, self.masterStackView].forEach { item in
                 item?.alpha = 1
             }
