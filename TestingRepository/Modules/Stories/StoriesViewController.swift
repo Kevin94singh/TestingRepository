@@ -27,6 +27,8 @@ final class StoriesViewController: BaseViewController<StoriesViewModel> {
     
     weak var delegate: StoriesViewControllerDelegate?
     
+    // MARK: - Lifecycle
+    
     override func loadView() {
         super.loadView()
         
@@ -49,6 +51,8 @@ final class StoriesViewController: BaseViewController<StoriesViewModel> {
         viewModel.getDataAction.execute()
     }
     
+    // MARK: - Bind
+    
     override func bind() {
         super.bind()
         bindAction()
@@ -58,6 +62,8 @@ final class StoriesViewController: BaseViewController<StoriesViewModel> {
         super.viewDidAppear(animated)
         setGradientBackground()
     }
+    
+    // MARK: - Style
     
     override func setStyle() {
         super.setStyle()

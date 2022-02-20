@@ -13,6 +13,8 @@ final class OnboardingViewController: BaseViewController<OnboardingViewModel> {
     
     weak var delegate: OnboardingViewControllerDelegate?
     
+    // MARK: - Lifecycle
+    
     override func loadView() {
         super.loadView()
         
@@ -40,10 +42,14 @@ final class OnboardingViewController: BaseViewController<OnboardingViewModel> {
         continueButton.bottom(5%).height(52).width(90%).centerHorizontally()
     }
     
+    // MARK: - Style
+    
     override func setStyle() {
         super.setStyle()
         setDefaultAttributesFor(style: .main, for: self)
     }
+    
+    // MARK: - Bind
     
     override func bind() {
         super.bind()
