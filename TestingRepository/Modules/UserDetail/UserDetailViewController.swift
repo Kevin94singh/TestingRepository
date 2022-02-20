@@ -51,6 +51,8 @@ final class UserDetailViewController: BaseViewController<UserDetailViewModel> {
     
     weak var delegate: UserDetailViewControllerDelegate?
     
+    // MARK: - Lifecycle
+    
     override func loadView() {
         super.loadView()
         let storiesLabel = UILabel.white(font: .systemFont(ofSize: 14, weight: .regular))
@@ -118,11 +120,12 @@ final class UserDetailViewController: BaseViewController<UserDetailViewModel> {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
     }
     
+    // MARK: - Bind
+    
     override func bind() {
         super.bind()
         bindAction()
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

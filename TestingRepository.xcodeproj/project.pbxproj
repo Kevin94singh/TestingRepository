@@ -155,11 +155,10 @@
 		0A55B55D27BEDC4F0076880B /* TestingRepository */ = {
 			isa = PBXGroup;
 			children = (
-				0A55B60627C2D2FB0076880B /* Common */,
 				0A55B56727BEDC530076880B /* Assets.xcassets */,
 				0A55B5FC27C170E80076880B /* Application */,
-				0A55B5FB27C170BA0076880B /* Supporting Files */,
 				0A55B57827BEE1900076880B /* Architecture */,
+				0A55B60627C2D2FB0076880B /* Common */,
 				0A55B57527BEE1480076880B /* Coordinator */,
 				0A55B5CF27BEF5D60076880B /* DI */,
 				0A55B58827BEE31C0076880B /* Extensions */,
@@ -169,6 +168,7 @@
 				0A55B5BB27BEEE490076880B /* Network */,
 				0A55B58D27BEE36D0076880B /* Protocols */,
 				0A55B5C627BEF05E0076880B /* Static */,
+				0A55B5FB27C170BA0076880B /* Supporting Files */,
 				0A55B58527BEE2F60076880B /* UI */,
 			);
 			path = TestingRepository;

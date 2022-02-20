@@ -7,6 +7,7 @@
 */
 
 /* Onboarding */
+
 "onboarding.cta" = "Continue to the App";
 "onboarding.title" = "Welcome to Explorer!";
 "onboarding.description" = "Let's see what Richard McAniff does ...";
