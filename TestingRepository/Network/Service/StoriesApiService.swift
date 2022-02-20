@@ -1,14 +1,14 @@
 import RxSwift
 
-protocol HasDashboardApi {
-    var dashboardApi: DashboardServicing { get }
+protocol HasStoriesApi {
+    var storiesApi: StoriesServicing { get }
 }
 
-protocol DashboardServicing {
+protocol StoriesServicing {
     func getData() -> Single<Story>
 }
 
-final class DashboardService {
+final class StoriesService {
     typealias Dependencies = HasNetworkDependencies
     
     private let dependencies: Dependencies
@@ -18,9 +18,9 @@ final class DashboardService {
     }
 }
 
-extension DashboardService: DashboardServicing {
+extension StoriesService: StoriesServicing {
     func getData() -> Single<Story> {
-        return dependencies.networkManager.makeRequest(router: DashboardApiRouter.getData)
+        return dependencies.networkManager.makeRequest(router: StoriesApiRouter.getData)
     }
 }
 

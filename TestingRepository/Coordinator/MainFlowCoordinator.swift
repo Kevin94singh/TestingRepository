@@ -1,6 +1,6 @@
 import UIKit
 
-final class DashboardFlowCoordinator: BaseCoordinator<NoDeepLink> {
+final class MainFlowCoordinator: BaseCoordinator<NoDeepLink> {
     weak var flowDelegate: AppFlowDelegate?
     
     private lazy var tabBarController: UITabBarController = {
@@ -13,16 +13,16 @@ final class DashboardFlowCoordinator: BaseCoordinator<NoDeepLink> {
         let style = AppStyle.main
         style.apply(textStyle: .tabBar, to: tabBarController.tabBar)
         
-        let dashboardViewController = DashboardViewController(viewModel: DashboardViewModel(dependencies: dependencies))
-        dashboardViewController.delegate = self
-        let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
-        dashboardNavigationController.tabBarItem = UITabBarItem(title: "Dashboard", image:Images.explorerUnselected(), selectedImage: Images.explorerSelected())
+        let storiesViewController = StoriesViewController(viewModel: StoriesViewModel(dependencies: dependencies))
+        storiesViewController.delegate = self
+        let storiesNavigationController = UINavigationController(rootViewController: storiesViewController)
+        storiesNavigationController.tabBarItem = UITabBarItem(title: Localizable.storiesTitle(), image:Images.explorerUnselected(), selectedImage: Images.explorerSelected())
         
         let aboutViewController = AboutYouViewController()
         let aboutNavigationController = UINavigationController(rootViewController: aboutViewController)
-        aboutNavigationController.tabBarItem = UITabBarItem(title: "About", image: Images.aboutUnselected(), selectedImage: Images.aboutSelected())
+        aboutNavigationController.tabBarItem = UITabBarItem(title: Localizable.aboutTitle(), image: Images.aboutUnselected(), selectedImage: Images.aboutSelected())
         
-        tabBarController.viewControllers = [dashboardNavigationController, aboutNavigationController]
+        tabBarController.viewControllers = [storiesNavigationController, aboutNavigationController]
         let navigationController = UINavigationController(rootViewController: tabBarController)
         navigationController.setNavigationBarHidden(true, animated: true)
         
@@ -32,8 +32,8 @@ final class DashboardFlowCoordinator: BaseCoordinator<NoDeepLink> {
     }
 }
 
-extension DashboardFlowCoordinator: DashboardViewControllerDelegate {
-    func dashboardViewControllerDelegateShowUser(detail: User) {
+extension MainFlowCoordinator: StoriesViewControllerDelegate {
+    func storiesViewControllerDelegateShowUser(detail: User) {
         let viewController = UserDetailViewController(viewModel: UserDetailViewModel(user: detail))
         viewController.delegate = self
         viewController.modalTransitionStyle = .crossDissolve
@@ -41,7 +41,7 @@ extension DashboardFlowCoordinator: DashboardViewControllerDelegate {
     }
 }
 
-extension DashboardFlowCoordinator: UserDetailViewControllerDelegate {
+extension MainFlowCoordinator: UserDetailViewControllerDelegate {
     func userDetailViewControllerDelegateDismiss(viewController: UserDetailViewController) {
         viewController.dismiss(animated: true)
     }

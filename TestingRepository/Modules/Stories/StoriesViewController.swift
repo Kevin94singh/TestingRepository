@@ -1,7 +1,7 @@
 import Stevia
 import UIKit
 
-final class DashboardViewController: BaseViewController<DashboardViewModel> {
+final class StoriesViewController: BaseViewController<StoriesViewModel> {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -13,7 +13,7 @@ final class DashboardViewController: BaseViewController<DashboardViewModel> {
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(DashboardCollectionViewCell.self)
+        collectionView.register(StoriesCollectionViewCell.self)
         collectionView.alwaysBounceVertical = true
         collectionView.bounces = true
         collectionView.contentInsetAdjustmentBehavior = .never
@@ -37,7 +37,7 @@ final class DashboardViewController: BaseViewController<DashboardViewModel> {
         return label
     }()
     
-    weak var delegate: DashboardViewControllerDelegate?
+    weak var delegate: StoriesViewControllerDelegate?
     
     override func loadView() {
         super.loadView()
@@ -76,25 +76,25 @@ final class DashboardViewController: BaseViewController<DashboardViewModel> {
     
     @objc
     private func avatarTapped() {
-        guard let user = viewModel.dashboardData.value?.data.first?.user else { return } //same user always
-        delegate?.dashboardViewControllerDelegateShowUser(detail: user)
+        guard let user = viewModel.storiesData.value?.data.first?.user else { return } //same user always
+        delegate?.storiesViewControllerDelegateShowUser(detail: user)
     }
 }
 
-extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension StoriesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.dashboardData.value?.data.count ?? 0
+        return viewModel.storiesData.value?.data.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: DashboardCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        guard let data = viewModel.dashboardData.value?.data.first?.user?.collections, data.count > 0 else { return cell }
+        let cell: StoriesCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        guard let data = viewModel.storiesData.value?.data.first?.user?.collections, data.count > 0 else { return cell }
         cell.set(collection: data[indexPath.row])
         return cell
     }
 }
 
-extension DashboardViewController: UICollectionViewDelegateFlowLayout {
+extension StoriesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = collectionView.bounds.width
         let itemHeight = collectionView.bounds.height
@@ -118,9 +118,9 @@ extension DashboardViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension DashboardViewController {
+extension StoriesViewController {
     func bindAction() {
-        viewModel.dashboardData
+        viewModel.storiesData
             .asDriver()
             .drive(onNext: { [weak self] (data) in
                 guard let data = data else { return }

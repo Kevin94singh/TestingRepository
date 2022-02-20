@@ -24,7 +24,7 @@ final class AppFlowCoordinator: BaseCoordinator<NoDeepLink> {
 
 extension AppFlowCoordinator: AppFlowDelegate {
     func appFlowDelegateShowMainFlow() {
-        let coordinator = DashboardFlowCoordinator()
+        let coordinator = MainFlowCoordinator()
         addChild(coordinator)
         coordinator.flowDelegate = self
         coordinator.start(in: window)
