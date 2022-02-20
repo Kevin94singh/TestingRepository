@@ -21,7 +21,7 @@ final class StoriesViewController: BaseViewController<StoriesViewModel> {
     }()
     
     private lazy var userInfoButton: UserInfoButton = {
-       let button = UserInfoButton()
+        let button = UserInfoButton()
         return button
     }()
     
@@ -41,7 +41,7 @@ final class StoriesViewController: BaseViewController<StoriesViewModel> {
         collectionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         
         userInfoButton.Bottom == collectionView.Bottom - 40
-        userInfoButton.right(30)        
+        userInfoButton.right(30)
     }
     
     override func viewDidLoad() {
