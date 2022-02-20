@@ -18,13 +18,20 @@ final class AppFlowCoordinator: BaseCoordinator<NoDeepLink> {
         window.rootViewController = vc
         rootViewController = vc
         
-        appFlowDelegateShowMainFlow()
+        UserDefaults.didShowOnboarding ? appFlowDelegateShowMainFlow() : appFlowDelegateShowOnboarding()
     }
 }
 
 extension AppFlowCoordinator: AppFlowDelegate {
     func appFlowDelegateShowMainFlow() {
         let coordinator = MainFlowCoordinator()
+        addChild(coordinator)
+        coordinator.flowDelegate = self
+        coordinator.start(in: window)
+    }
+    
+    func appFlowDelegateShowOnboarding() {
+        let coordinator = OnboardingFlowCoordinator()
         addChild(coordinator)
         coordinator.flowDelegate = self
         coordinator.start(in: window)

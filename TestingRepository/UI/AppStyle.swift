@@ -75,7 +75,7 @@ struct AppStyle {
             appearance.backgroundColor = attributes.backgroundColor
             
             let tabBarItemAppearance = UITabBarItemAppearance()
-            tabBarItemAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            tabBarItemAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray2]
             tabBarItemAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             appearance.stackedLayoutAppearance = tabBarItemAppearance
             tabBar.backgroundColor = .black

@@ -48,6 +48,13 @@
 		0A55B5EF27C165240076880B /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5EE27C165240076880B /* LoadingViewController.swift */; };
 		0A55B5F527C16AFF0076880B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B5F427C16AFF0076880B /* R.generated.swift */; };
 		0A55B5F827C16C990076880B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A55B5FA27C16C990076880B /* Localizable.strings */; };
+		0A55B60327C2D2560076880B /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B60227C2D2560076880B /* OnboardingViewModel.swift */; };
+		0A55B60527C2D27A0076880B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B60427C2D27A0076880B /* OnboardingViewController.swift */; };
+		0A55B60827C2D3110076880B /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B60727C2D3110076880B /* UserDefaultsHelper.swift */; };
+		0A55B60A27C2DA140076880B /* OnboardingFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B60927C2DA140076880B /* OnboardingFlowCoordinator.swift */; };
+		0A55B60C27C2DB570076880B /* OnboardingViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B60B27C2DB570076880B /* OnboardingViewControllerDelegate.swift */; };
+		0A55B61027C2DE950076880B /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B60F27C2DE950076880B /* AnimatedButton.swift */; };
+		0A55B61227C2E2990076880B /* UserInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55B61127C2E2990076880B /* UserInfoButton.swift */; };
 		E787FA1586DB39A728D61E5F /* Pods_TestingRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886BDBCD88B053BC0C8F5477 /* Pods_TestingRepository.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +102,13 @@
 		0A55B5EE27C165240076880B /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		0A55B5F427C16AFF0076880B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = Static/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		0A55B5F927C16C990076880B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A55B60227C2D2560076880B /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		0A55B60427C2D27A0076880B /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		0A55B60727C2D3110076880B /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		0A55B60927C2DA140076880B /* OnboardingFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowCoordinator.swift; sourceTree = "<group>"; };
+		0A55B60B27C2DB570076880B /* OnboardingViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerDelegate.swift; sourceTree = "<group>"; };
+		0A55B60F27C2DE950076880B /* AnimatedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
+		0A55B61127C2E2990076880B /* UserInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoButton.swift; sourceTree = "<group>"; };
 		1D867ABB1D7AA4501A0A9906 /* Pods-TestingRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingRepository.release.xcconfig"; path = "Target Support Files/Pods-TestingRepository/Pods-TestingRepository.release.xcconfig"; sourceTree = "<group>"; };
 		886BDBCD88B053BC0C8F5477 /* Pods_TestingRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestingRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00D9F64F3D57B46D4BEEF95 /* Pods-TestingRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingRepository.debug.xcconfig"; path = "Target Support Files/Pods-TestingRepository/Pods-TestingRepository.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +155,7 @@
 		0A55B55D27BEDC4F0076880B /* TestingRepository */ = {
 			isa = PBXGroup;
 			children = (
+				0A55B60627C2D2FB0076880B /* Common */,
 				0A55B56727BEDC530076880B /* Assets.xcassets */,
 				0A55B5FC27C170E80076880B /* Application */,
 				0A55B5FB27C170BA0076880B /* Supporting Files */,
@@ -165,6 +180,7 @@
 				0A55B5A327BEEA350076880B /* AppFlowCoordinator.swift */,
 				0A55B5A527BEEA560076880B /* MainFlowCoordinator.swift */,
 				0A55B5A727BEEA6D0076880B /* AppFlowDelegate.swift */,
+				0A55B60927C2DA140076880B /* OnboardingFlowCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -182,6 +198,7 @@
 		0A55B57D27BEE2A50076880B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0A55B60127C2D2370076880B /* Onboarding */,
 				0A55B5ED27C1650B0076880B /* Loading */,
 				0A55B5DB27C1150F0076880B /* UserDetail */,
 				0A55B5D827BFFE2D0076880B /* About */,
@@ -206,6 +223,8 @@
 			children = (
 				0A55B5AD27BEEAD10076880B /* ViewControllerStyleable.swift */,
 				0A55B5AF27BEEAE50076880B /* AppStyle.swift */,
+				0A55B60F27C2DE950076880B /* AnimatedButton.swift */,
+				0A55B61127C2E2990076880B /* UserInfoButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -363,6 +382,24 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		0A55B60127C2D2370076880B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0A55B60227C2D2560076880B /* OnboardingViewModel.swift */,
+				0A55B60427C2D27A0076880B /* OnboardingViewController.swift */,
+				0A55B60B27C2DB570076880B /* OnboardingViewControllerDelegate.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		0A55B60627C2D2FB0076880B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0A55B60727C2D3110076880B /* UserDefaultsHelper.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		8B46D5D6A6C716D25BE5A9A7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +547,7 @@
 			files = (
 				0A55B5B827BEEB400076880B /* ViewModelProtocol.swift in Sources */,
 				0A55B5A227BEEA1B0076880B /* BaseViewModel.swift in Sources */,
+				0A55B60C27C2DB570076880B /* OnboardingViewControllerDelegate.swift in Sources */,
 				0A55B5EC27C15E7A0076880B /* UIViewController.swift in Sources */,
 				0A55B5A027BEE9FD0076880B /* BaseCoordinator.swift in Sources */,
 				0A55B5CA27BEF09C0076880B /* StoriesApiRouter.swift in Sources */,
@@ -520,6 +558,7 @@
 				0A55B5EF27C165240076880B /* LoadingViewController.swift in Sources */,
 				0A55B5D327BFE2590076880B /* StoriesCollectionViewCell.swift in Sources */,
 				0A55B5AC27BEEA9B0076880B /* StoriesViewModel.swift in Sources */,
+				0A55B61027C2DE950076880B /* AnimatedButton.swift in Sources */,
 				0A55B5DA27BFFE450076880B /* AboutViewController.swift in Sources */,
 				0A55B5C827BEF06A0076880B /* Configuration.swift in Sources */,
 				0A55B5B227BEEAFC0076880B /* UILabel.swift in Sources */,
@@ -527,6 +566,9 @@
 				0A55B5C527BEEEDA0076880B /* CustomError.swift in Sources */,
 				0A55B5BA27BEEB530076880B /* Logger.swift in Sources */,
 				0A55B55F27BEDC4F0076880B /* AppDelegate.swift in Sources */,
+				0A55B61227C2E2990076880B /* UserInfoButton.swift in Sources */,
+				0A55B60A27C2DA140076880B /* OnboardingFlowCoordinator.swift in Sources */,
+				0A55B60327C2D2560076880B /* OnboardingViewModel.swift in Sources */,
 				0A55B5DD27C1151F0076880B /* UserDetailViewModel.swift in Sources */,
 				0A55B5E927C158B10076880B /* StoryData.swift in Sources */,
 				0A55B5B427BEEB110076880B /* UINavigationController.swift in Sources */,
@@ -534,10 +576,12 @@
 				0A55B5D527BFE9280076880B /* UIImageView.swift in Sources */,
 				0A55B5E127C120450076880B /* StoriesViewControllerDelegate.swift in Sources */,
 				0A55B5F527C16AFF0076880B /* R.generated.swift in Sources */,
+				0A55B60527C2D27A0076880B /* OnboardingViewController.swift in Sources */,
 				0A55B5BF27BEEE710076880B /* NetworkManager.swift in Sources */,
 				0A55B5A427BEEA350076880B /* AppFlowCoordinator.swift in Sources */,
 				0A55B5B027BEEAE50076880B /* AppStyle.swift in Sources */,
 				0A55B5B627BEEB250076880B /* Reusable.swift in Sources */,
+				0A55B60827C2D3110076880B /* UserDefaultsHelper.swift in Sources */,
 				0A55B5C127BEEE7A0076880B /* AuthHandler.swift in Sources */,
 				0A55B5D727BFEC3D0076880B /* UIColor.swift in Sources */,
 				0A55B5AE27BEEAD10076880B /* ViewControllerStyleable.swift in Sources */,

@@ -20,21 +20,9 @@ final class StoriesViewController: BaseViewController<StoriesViewModel> {
         return collectionView
     }()
     
-    private lazy var avatarImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 15
-        imageView.clipsToBounds = true
-        imageView.isUserInteractionEnabled = true
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
-        imageView.addGestureRecognizer(tapRecognizer)
-        return imageView
-    }()
-    
-    private lazy var usernameLabel: UILabel = {
-        let label = UILabel.white(font: .systemFont(ofSize: 17, weight: .regular))
-        return label
+    private lazy var userInfoButton: UserInfoButton = {
+       let button = UserInfoButton()
+        return button
     }()
     
     weak var delegate: StoriesViewControllerDelegate?
@@ -44,8 +32,7 @@ final class StoriesViewController: BaseViewController<StoriesViewModel> {
         
         view.sv(
             collectionView,
-            avatarImageView,
-            usernameLabel
+            userInfoButton
         )
         
         collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -53,10 +40,8 @@ final class StoriesViewController: BaseViewController<StoriesViewModel> {
         collectionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         
-        avatarImageView.size(30).right(30)
-        avatarImageView.Bottom == collectionView.Bottom - 20
-        usernameLabel.CenterY == avatarImageView.CenterY
-        usernameLabel.Right == avatarImageView.Left - 20
+        userInfoButton.Bottom == collectionView.Bottom - 40
+        userInfoButton.right(30)        
     }
     
     override func viewDidLoad() {
@@ -69,15 +54,27 @@ final class StoriesViewController: BaseViewController<StoriesViewModel> {
         bindAction()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setGradientBackground()
+    }
+    
     override func setStyle() {
         super.setStyle()
         setDefaultAttributesFor(style: .main, for: self, title: Localizable.storiesTitle())
     }
     
-    @objc
-    private func avatarTapped() {
-        guard let user = viewModel.storiesData.value?.data.first?.user else { return } //same user always
-        delegate?.storiesViewControllerDelegateShowUser(detail: user)
+    private func setGradientBackground() {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [
+            UIColor.black.withAlphaComponent(0).cgColor,
+            UIColor.black.withAlphaComponent(1).cgColor,
+            UIColor.black.withAlphaComponent(1).cgColor,
+            UIColor.black.withAlphaComponent(0).cgColor
+        ]
+        gradient.locations = [0, 0.03, 0.8, 1]
+        view.layer.mask = gradient
     }
 }
 
@@ -120,14 +117,20 @@ extension StoriesViewController: UICollectionViewDelegateFlowLayout {
 
 extension StoriesViewController {
     func bindAction() {
+        userInfoButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                guard let user = self?.viewModel.storiesData.value?.data.first?.user else { return } /// same user always
+                self?.delegate?.storiesViewControllerDelegateShowUser(detail: user)
+            }).disposed(by: disposeBag)
+        
         viewModel.storiesData
             .asDriver()
             .drive(onNext: { [weak self] (data) in
                 guard let data = data else { return }
                 self?.collectionView.reloadData()
                 if let user = data.data.first?.user { /// User in API is still same
-                    self?.avatarImageView.setImage(urlString: user.avatarImageUrl, placeholder: nil)
-                    self?.usernameLabel.text(user.displayName ?? "")
+                    self?.userInfoButton.set(image: user.avatarImageUrl, name: user.displayName)
                 }
             }).disposed(by: disposeBag)
         

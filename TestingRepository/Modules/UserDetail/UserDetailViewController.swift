@@ -2,8 +2,8 @@ import Stevia
 import UIKit
 
 final class UserDetailViewController: BaseViewController<UserDetailViewModel> {
-    private lazy var dismissButton: UIButton = {
-        let button = UIButton()
+    private lazy var dismissButton: AnimatedButton = {
+        let button = AnimatedButton()
         button.setImage(Images.cross(), for: .normal)
         return button
     }()
@@ -126,7 +126,7 @@ final class UserDetailViewController: BaseViewController<UserDetailViewModel> {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.2) {
             [self.dismissButton, self.userAvatarImageView, self.userNameLabel, self.masterStackView].forEach { item in
                 item?.alpha = 1
             }

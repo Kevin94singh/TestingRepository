@@ -5,7 +5,6 @@ final class MainFlowCoordinator: BaseCoordinator<NoDeepLink> {
     
     private lazy var tabBarController: UITabBarController = {
         let tabBarController = UITabBarController()
-        tabBarController.tabBar.barTintColor = .green
         return tabBarController
     }()
     

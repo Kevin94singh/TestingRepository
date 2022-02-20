@@ -3,7 +3,7 @@ import UIKit
 
 final class StoriesCollectionViewCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
-        let label = UILabel.white(font: .systemFont(ofSize: 20, weight: .bold))
+        let label = UILabel.white(font: .systemFont(ofSize: 32, weight: .bold))
         return label
     }()
     
