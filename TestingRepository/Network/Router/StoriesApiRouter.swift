@@ -1,10 +1,10 @@
 import Alamofire
 
-enum DashboardApiRouter {
+enum StoriesApiRouter {
     case getData
 }
 
-extension DashboardApiRouter: URLRequestConvertible {
+extension StoriesApiRouter: URLRequestConvertible {
     
     // MARK: - Base URL
     

@@ -6,6 +6,11 @@
   
 */
 
+/* Onboarding */
+"onboarding.cta" = "Continue to the App";
+"onboarding.title" = "Welcome to Explorer!";
+"onboarding.description" = "Let's see what Richard McAniff does ...";
+
 /* Stories */
 
 "stories.title" = "Stories";
@@ -19,3 +24,4 @@
 /* About */
 
 "about.title" = "About";
+"about.description" = "Kevin Singh, 2022";

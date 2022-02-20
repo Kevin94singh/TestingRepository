@@ -1,7 +1,7 @@
 import Stevia
 import UIKit
 
-final class DashboardViewController: BaseViewController<DashboardViewModel> {
+final class StoriesViewController: BaseViewController<StoriesViewModel> {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -13,39 +13,26 @@ final class DashboardViewController: BaseViewController<DashboardViewModel> {
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(DashboardCollectionViewCell.self)
+        collectionView.register(StoriesCollectionViewCell.self)
         collectionView.alwaysBounceVertical = true
         collectionView.bounces = true
         collectionView.contentInsetAdjustmentBehavior = .never
         return collectionView
     }()
     
-    private lazy var avatarImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 15
-        imageView.clipsToBounds = true
-        imageView.isUserInteractionEnabled = true
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
-        imageView.addGestureRecognizer(tapRecognizer)
-        return imageView
+    private lazy var userInfoButton: UserInfoButton = {
+        let button = UserInfoButton()
+        return button
     }()
     
-    private lazy var usernameLabel: UILabel = {
-        let label = UILabel.white(font: .systemFont(ofSize: 17, weight: .regular))
-        return label
-    }()
-    
-    weak var delegate: DashboardViewControllerDelegate?
+    weak var delegate: StoriesViewControllerDelegate?
     
     override func loadView() {
         super.loadView()
         
         view.sv(
             collectionView,
-            avatarImageView,
-            usernameLabel
+            userInfoButton
         )
         
         collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -53,10 +40,8 @@ final class DashboardViewController: BaseViewController<DashboardViewModel> {
         collectionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         
-        avatarImageView.size(30).right(30)
-        avatarImageView.Bottom == collectionView.Bottom - 20
-        usernameLabel.CenterY == avatarImageView.CenterY
-        usernameLabel.Right == avatarImageView.Left - 20
+        userInfoButton.Bottom == collectionView.Bottom - 40
+        userInfoButton.right(30)
     }
     
     override func viewDidLoad() {
@@ -69,32 +54,44 @@ final class DashboardViewController: BaseViewController<DashboardViewModel> {
         bindAction()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setGradientBackground()
+    }
+    
     override func setStyle() {
         super.setStyle()
         setDefaultAttributesFor(style: .main, for: self, title: Localizable.storiesTitle())
     }
     
-    @objc
-    private func avatarTapped() {
-        guard let user = viewModel.dashboardData.value?.data.first?.user else { return } //same user always
-        delegate?.dashboardViewControllerDelegateShowUser(detail: user)
+    private func setGradientBackground() {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [
+            UIColor.black.withAlphaComponent(0).cgColor,
+            UIColor.black.withAlphaComponent(1).cgColor,
+            UIColor.black.withAlphaComponent(1).cgColor,
+            UIColor.black.withAlphaComponent(0).cgColor
+        ]
+        gradient.locations = [0, 0.03, 0.8, 1]
+        view.layer.mask = gradient
     }
 }
 
-extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension StoriesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.dashboardData.value?.data.count ?? 0
+        return viewModel.storiesData.value?.data.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: DashboardCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        guard let data = viewModel.dashboardData.value?.data.first?.user?.collections, data.count > 0 else { return cell }
+        let cell: StoriesCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        guard let data = viewModel.storiesData.value?.data.first?.user?.collections, data.count > 0 else { return cell }
         cell.set(collection: data[indexPath.row])
         return cell
     }
 }
 
-extension DashboardViewController: UICollectionViewDelegateFlowLayout {
+extension StoriesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = collectionView.bounds.width
         let itemHeight = collectionView.bounds.height
@@ -118,16 +115,22 @@ extension DashboardViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension DashboardViewController {
+extension StoriesViewController {
     func bindAction() {
-        viewModel.dashboardData
+        userInfoButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                guard let user = self?.viewModel.storiesData.value?.data.first?.user else { return } /// same user always
+                self?.delegate?.storiesViewControllerDelegateShowUser(detail: user)
+            }).disposed(by: disposeBag)
+        
+        viewModel.storiesData
             .asDriver()
             .drive(onNext: { [weak self] (data) in
                 guard let data = data else { return }
                 self?.collectionView.reloadData()
                 if let user = data.data.first?.user { /// User in API is still same
-                    self?.avatarImageView.setImage(urlString: user.avatarImageUrl, placeholder: nil)
-                    self?.usernameLabel.text(user.displayName ?? "")
+                    self?.userInfoButton.set(image: user.avatarImageUrl, name: user.displayName)
                 }
             }).disposed(by: disposeBag)
         

@@ -1,11 +1,11 @@
 import Foundation
 
 typealias HasNetworkDependencies = HasNetworkManager
-typealias HasDashboardDependencies = HasDashboardApi
+typealias HasStoriesDependencies = HasStoriesApi
 
-final class AppDependency: HasNetworkDependencies, HasDashboardDependencies {
+final class AppDependency: HasNetworkDependencies, HasStoriesDependencies {
     lazy var networkManager: NetworkableManager = NetworkManager(dependencies: self)
-    lazy var dashboardApi: DashboardServicing = DashboardService(dependencies: self)
+    lazy var storiesApi: StoriesServicing = StoriesService(dependencies: self)
 }
 
 protocol HasNoDependency {}

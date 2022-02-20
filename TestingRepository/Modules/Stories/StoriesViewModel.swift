@@ -2,19 +2,19 @@ import Action
 import RxCocoa
 import RxSwift
 
-protocol DashboardViewModelInputs {
+protocol StoriesViewModelInputs {
     var getDataAction: Action<Void, Story> { get set }
 }
 
-protocol DashboardViewModelOutputs {
-    var dashboardData: BehaviorRelay<Story?> { get }
+protocol StoriesViewModelOutputs {
+    var storiesData: BehaviorRelay<Story?> { get }
     var error: BehaviorRelay<Error?> { get }
     var isExecuting: BehaviorRelay<Bool> { get }
 }
 
-final class DashboardViewModel: BaseViewModel, DashboardViewModelInputs, DashboardViewModelOutputs {
+final class StoriesViewModel: BaseViewModel, StoriesViewModelInputs, StoriesViewModelOutputs {
     
-    typealias Dependencies = HasNetworkDependencies & HasDashboardDependencies
+    typealias Dependencies = HasNetworkDependencies & HasStoriesDependencies
     
     // MARK: - Dependencies
     
@@ -37,22 +37,22 @@ final class DashboardViewModel: BaseViewModel, DashboardViewModelInputs, Dashboa
     
     lazy var getDataAction: Action<Void, Story> = {
         return Action(workFactory: { [unowned self] () -> Single<Story> in
-            return self.dependencies.dashboardApi.getData()
+            return self.dependencies.storiesApi.getData()
         })
     }()
     
     // MARK: - Outputs
     
-    let dashboardData = BehaviorRelay<Story?>(value: nil)
+    let storiesData = BehaviorRelay<Story?>(value: nil)
     let error = BehaviorRelay<Error?>(value: nil)
     let isExecuting = BehaviorRelay<Bool>(value: false)
 }
 
-extension DashboardViewModel {
+extension StoriesViewModel {
     func bindAction() {
         getDataAction
             .elements
-            .bind(to: dashboardData)
+            .bind(to: storiesData)
             .disposed(by: disposeBag)
         
         getDataAction.underlyingError
