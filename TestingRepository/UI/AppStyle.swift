@@ -90,7 +90,7 @@ extension AppStyle {
     static var main: AppStyle {
         return AppStyle(
             backgroundColor: .black,
-            preferredStatusBarStyle: .default,
+            preferredStatusBarStyle: .darkContent,
             attributesForStyle: { $0.mainAppAttributes }
         )
     }

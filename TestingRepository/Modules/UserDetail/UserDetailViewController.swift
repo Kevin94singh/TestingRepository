@@ -113,6 +113,11 @@ final class UserDetailViewController: BaseViewController<UserDetailViewModel> {
         self.masterStackView = masterStackView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+    }
+    
     override func bind() {
         super.bind()
         bindAction()

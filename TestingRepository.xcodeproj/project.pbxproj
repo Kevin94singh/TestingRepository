@@ -141,6 +141,7 @@
 		0A55B55D27BEDC4F0076880B /* TestingRepository */ = {
 			isa = PBXGroup;
 			children = (
+				0A55B56727BEDC530076880B /* Assets.xcassets */,
 				0A55B5FC27C170E80076880B /* Application */,
 				0A55B5FB27C170BA0076880B /* Supporting Files */,
 				0A55B57827BEE1900076880B /* Architecture */,
@@ -340,7 +341,6 @@
 		0A55B5FB27C170BA0076880B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0A55B5FE27C1710E0076880B /* Assets */,
 				0A55B56927BEDC530076880B /* LaunchScreen.storyboard */,
 				0A55B56C27BEDC530076880B /* Info.plist */,
 			);
@@ -361,14 +361,6 @@
 				0A55B55E27BEDC4F0076880B /* AppDelegate.swift */,
 			);
 			path = Delegate;
-			sourceTree = "<group>";
-		};
-		0A55B5FE27C1710E0076880B /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				0A55B56727BEDC530076880B /* Assets.xcassets */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		8B46D5D6A6C716D25BE5A9A7 /* Pods */ = {
@@ -712,6 +704,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -742,6 +735,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
